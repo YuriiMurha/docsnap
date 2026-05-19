@@ -77,9 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "DocSnap — Foto. Match. Hotovo." },
       { name: "description", content: "Odfoť dodací list, odfoť paletu, dostaneš match report." },
       { name: "theme-color", content: "#0D9488" },
-      { property: "og:title", content: "DocSnap" },
-      { property: "og:description", content: "Foto. Match. Hotovo." },
+      { property: "og:title", content: "DocSnap — Foto. Match. Hotovo." },
+      { property: "og:description", content: "Odfoť dodací list, odfoť paletu, dostaneš match report." },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "DocSnap — Foto. Match. Hotovo." },
+      { name: "twitter:description", content: "Odfoť dodací list, odfoť paletu, dostaneš match report." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/eU0aQ5bgBkWB2HAdkDQMmdOJG6C2/social-images/social-1779181763490-Logo.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/eU0aQ5bgBkWB2HAdkDQMmdOJG6C2/social-images/social-1779181763490-Logo.webp" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
