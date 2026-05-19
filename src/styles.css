@@ -1,4 +1,5 @@
 @import "tailwindcss" source(none);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 @source "../src";
 @import "tw-animate-css";
 
@@ -44,45 +45,81 @@
   --color-status-extra: var(--status-extra);
   --color-status-partial: var(--status-partial);
 
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* shadcn base */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.205 0.04 264);
+  /* Brand colors: Red Orange #FF3C00, Aqua White #E9F9FF, Midnight #002123 */
+
+  /* Light mode */
+  --background: oklch(0.975 0.018 220);   /* Aqua White #E9F9FF */
+  --foreground: oklch(0.21 0.03 195);     /* Midnight #002123 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.205 0.04 264);
+  --card-foreground: oklch(0.21 0.03 195);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0.04 264);
-  --primary: oklch(0.58 0.12 184); /* teal */
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.97 0.005 248);
-  --secondary-foreground: oklch(0.205 0.04 264);
-  --muted: oklch(0.55 0.03 257);
-  --muted-foreground: oklch(0.55 0.03 257);
-  --accent: oklch(0.93 0.04 184);
-  --accent-foreground: oklch(0.3 0.06 184);
+  --popover-foreground: oklch(0.21 0.03 195);
+  --primary: oklch(0.65 0.24 32);          /* Red Orange #FF3C00 */
+  --primary-foreground: oklch(0.98 0.015 220);
+  --secondary: oklch(0.95 0.02 220);
+  --secondary-foreground: oklch(0.21 0.03 195);
+  --muted: oklch(0.55 0.02 210);
+  --muted-foreground: oklch(0.5 0.02 210);
+  --accent: oklch(0.92 0.08 32);
+  --accent-foreground: oklch(0.35 0.18 32);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.013 256);
-  --input: oklch(0.92 0.013 256);
-  --ring: oklch(0.58 0.12 184);
+  --border: oklch(0.88 0.025 215);
+  --input: oklch(0.88 0.025 215);
+  --ring: oklch(0.65 0.24 32);
 
-  /* DocSnap palette */
-  --ink: oklch(0.205 0.04 264);          /* #0F172A */
-  --ink2: oklch(0.28 0.04 260);          /* #1E293B */
-  --line: oklch(0.92 0.013 256);         /* #E2E8F0 */
-  --surf: oklch(0.98 0.005 248);         /* #F8FAFC */
-  --brand: oklch(0.58 0.12 184);         /* teal #0D9488 */
-  --brand-soft: oklch(0.93 0.04 184);    /* tealLt #CCFBF1 */
-  --brand-foreground: oklch(0.99 0 0);
-  --status-ok: oklch(0.62 0.18 145);     /* green #16A34A */
-  --status-missing: oklch(0.6 0.22 27);  /* red #DC2626 */
-  --status-extra: oklch(0.72 0.18 60);   /* amber #F59E0B */
-  --status-partial: oklch(0.7 0.19 45);  /* coral #F97316 */
+  --ink: oklch(0.21 0.03 195);            /* Midnight */
+  --ink2: oklch(0.32 0.03 200);
+  --line: oklch(0.88 0.025 215);
+  --surf: oklch(0.975 0.018 220);         /* Aqua White */
+  --brand: oklch(0.65 0.24 32);           /* Red Orange */
+  --brand-soft: oklch(0.92 0.08 32);
+  --brand-foreground: oklch(0.98 0.015 220);
+  --status-ok: oklch(0.62 0.18 145);
+  --status-missing: oklch(0.6 0.22 27);
+  --status-extra: oklch(0.72 0.18 60);
+  --status-partial: oklch(0.7 0.19 45);
+}
+
+.dark {
+  --background: oklch(0.21 0.03 195);     /* Midnight */
+  --foreground: oklch(0.975 0.018 220);   /* Aqua White */
+  --card: oklch(0.27 0.03 198);
+  --card-foreground: oklch(0.975 0.018 220);
+  --popover: oklch(0.27 0.03 198);
+  --popover-foreground: oklch(0.975 0.018 220);
+  --primary: oklch(0.68 0.24 32);
+  --primary-foreground: oklch(0.98 0.015 220);
+  --secondary: oklch(0.3 0.03 198);
+  --secondary-foreground: oklch(0.975 0.018 220);
+  --muted: oklch(0.7 0.02 215);
+  --muted-foreground: oklch(0.75 0.02 215);
+  --accent: oklch(0.4 0.12 32);
+  --accent-foreground: oklch(0.95 0.05 32);
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.35 0.03 200);
+  --input: oklch(0.35 0.03 200);
+  --ring: oklch(0.68 0.24 32);
+
+  --ink: oklch(0.975 0.018 220);
+  --ink2: oklch(0.9 0.018 220);
+  --line: oklch(0.35 0.03 200);
+  --surf: oklch(0.21 0.03 195);
+  --brand: oklch(0.68 0.24 32);
+  --brand-soft: oklch(0.4 0.12 32);
+  --brand-foreground: oklch(0.98 0.015 220);
+  --status-ok: oklch(0.7 0.18 145);
+  --status-missing: oklch(0.68 0.22 27);
+  --status-extra: oklch(0.78 0.18 60);
+  --status-partial: oklch(0.75 0.19 45);
 }
 
 @layer base {
@@ -97,7 +134,13 @@
   }
 
   body {
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
     font-size: 15px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
