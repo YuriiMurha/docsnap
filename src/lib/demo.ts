@@ -23,8 +23,8 @@ export const DEMO_DETECTED = detected;
 export function buildDemoDelivery(): Delivery {
   return {
     id: "demo-001",
-    deliveryNoteImage: "/demo/lieferschein-sample.jpg",
-    palletImage: "/demo/pallet-sample.jpg",
+    deliveryNoteImage: "/demo/lieferschein-sample.svg",
+    palletImage: "/demo/pallet-sample.svg",
     lineItems,
     detected,
     matchRows: buildMatchReport(lineItems, detected),
