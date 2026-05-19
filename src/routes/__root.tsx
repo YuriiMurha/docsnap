@@ -7,6 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { DeliveryProvider } from "@/context/delivery-context";
 
 import appCss from "../styles.css?url";
 
