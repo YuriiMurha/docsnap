@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <rect width="400" height="560" fill="#F8FAFC"/>
+  <rect x="20" y="20" width="360" height="520" fill="#fff" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="40" y="60" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#0F172A">Lieferschein</text>
+  <text x="40" y="84" font-family="sans-serif" font-size="12" fill="#64748B">GymBeam s.r.o. — Demo 001</text>
+  <line x1="40" y1="110" x2="360" y2="110" stroke="#E2E8F0"/>
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <text x="40" y="140">SKU</text>
+    <text x="180" y="140">Produkt</text>
+    <text x="340" y="140" text-anchor="end">Mn.</text>
+    <text x="40" y="170">GB-WHEY-2000-CHOC</text><text x="180" y="170">Whey Chocolate 2kg</text><text x="340" y="170" text-anchor="end">12</text>
+    <text x="40" y="195">GB-WHEY-2000-VAN</text><text x="180" y="195">Whey Vanilla 2kg</text><text x="340" y="195" text-anchor="end">8</text>
+    <text x="40" y="220">GB-CREATINE-500</text><text x="180" y="220">Creatine 500g</text><text x="340" y="220" text-anchor="end">24</text>
+    <text x="40" y="245">GB-BCAA-2-1-1-500</text><text x="180" y="245">BCAA Watermelon 500g</text><text x="340" y="245" text-anchor="end">6</text>
+    <text x="40" y="270">GB-SHAKER-700</text><text x="180" y="270">Shaker Black 700ml</text><text x="340" y="270" text-anchor="end">50</text>
+  </g>
+  <text x="40" y="520" font-family="sans-serif" font-size="10" fill="#64748B">Ukážková vzorka • DocSnap</text>
+</svg>
