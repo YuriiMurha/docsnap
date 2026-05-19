@@ -1,8 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Package } from "lucide-react";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { useDelivery } from "@/context/delivery-context";
+import { getProductImage } from "@/lib/product-images";
 import type { MatchRow } from "@/types";
 
 export const Route = createFileRoute("/match/$sku")({
