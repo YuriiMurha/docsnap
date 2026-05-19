@@ -13,7 +13,8 @@ import { buildMatchReport } from "@/lib/match";
 import { mergeDetected } from "@/lib/merge-detected";
 import { extractDeliveryNote, detectPalletContents } from "@/lib/ai.functions";
 import type { Delivery } from "@/types";
-import logoUrl from "@/assets/logo.png";
+import logoLight from "@/assets/logo-light.png";
+import logoDark from "@/assets/logo-dark.png";
 
 
 export const Route = createFileRoute("/")({
@@ -105,7 +106,8 @@ function Capture() {
           <ThemeToggle />
         </div>
         <div className="text-center pt-1">
-          <img src={logoUrl} alt="DocSnap" className="mx-auto h-16 w-auto dark:brightness-0 dark:invert-[.92]" />
+          <img src={logoLight} alt="DocSnap" className="mx-auto h-16 w-auto dark:hidden" />
+          <img src={logoDark} alt="DocSnap" className="mx-auto hidden h-16 w-auto dark:block" />
           <p className="mt-2 text-sm font-semibold tracking-wide text-muted uppercase">Foto. Match. Hotovo.</p>
         </div>
       </header>
