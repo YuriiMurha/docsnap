@@ -4,12 +4,15 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { UploadCard } from "@/components/upload-card";
 import { LoadingOverlay } from "@/components/loading-overlay";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { useDelivery } from "@/context/delivery-context";
 import { fileToBase64, fileToDataUrl } from "@/lib/file-to-base64";
 import { buildDemoDelivery } from "@/lib/demo";
 import { buildMatchReport } from "@/lib/match";
 import { extractDeliveryNote, detectPalletContents } from "@/lib/ai.functions";
 import type { Delivery } from "@/types";
+import logoUrl from "@/assets/logo.png";
+
 
 export const Route = createFileRoute("/")({
   component: Capture,
@@ -86,9 +89,14 @@ function Capture() {
 
   return (
     <div className="flex min-h-screen flex-col px-5 pb-32 pt-8">
-      <header className="mb-8 text-center">
-        <h1 className="font-serif text-4xl font-bold text-brand">DocSnap</h1>
-        <p className="mt-1 font-serif italic text-muted">Foto. Match. Hotovo.</p>
+      <header className="mb-8 relative">
+        <div className="absolute right-0 top-0">
+          <ThemeToggle />
+        </div>
+        <div className="text-center pt-1">
+          <img src={logoUrl} alt="DocSnap" className="mx-auto h-16 w-auto dark:brightness-0 dark:invert-[.92]" />
+          <p className="mt-2 text-sm font-semibold tracking-wide text-muted uppercase">Foto. Match. Hotovo.</p>
+        </div>
       </header>
 
       <div className="flex flex-col gap-4">
