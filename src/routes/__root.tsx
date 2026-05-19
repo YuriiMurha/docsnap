@@ -7,6 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { DeliveryProvider } from "@/context/delivery-context";
 
 import appCss from "../styles.css?url";
 
@@ -71,15 +73,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { title: "DocSnap — Foto. Match. Hotovo." },
+      { name: "description", content: "Odfoť dodací list, odfoť paletu, dostaneš match report." },
+      { name: "theme-color", content: "#0D9488" },
+      { property: "og:title", content: "DocSnap" },
+      { property: "og:description", content: "Foto. Match. Hotovo." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sk">
       <head>
         <HeadContent />
       </head>
@@ -113,7 +113,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <DeliveryProvider>
+        <div className="mx-auto min-h-screen w-full max-w-[480px] bg-background shadow-[0_0_0_1px_var(--color-line)] md:my-4 md:min-h-[calc(100vh-2rem)] md:rounded-2xl md:shadow-xl">
+          <Outlet />
+        </div>
+        <Toaster position="top-center" richColors />
+      </DeliveryProvider>
     </QueryClientProvider>
   );
 }
