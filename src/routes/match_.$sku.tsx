@@ -6,7 +6,7 @@ import { useDelivery } from "@/context/delivery-context";
 import { getProductImage } from "@/lib/product-images";
 import type { MatchRow } from "@/types";
 
-export const Route = createFileRoute("/match/$sku")({
+export const Route = createFileRoute("/match_/$sku")({
   component: Detail,
 });
 

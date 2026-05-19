@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MatchRouteImport } from './routes/match'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MatchSkuRouteImport } from './routes/match.$sku'
+import { Route as MatchSkuRouteImport } from './routes/match_.$sku'
 
 const MatchRoute = MatchRouteImport.update({
   id: '/match',
@@ -24,38 +24,39 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchSkuRoute = MatchSkuRouteImport.update({
-  id: '/$sku',
-  path: '/$sku',
-  getParentRoute: () => MatchRoute,
+  id: '/match_/$sku',
+  path: '/match/$sku',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/match': typeof MatchRouteWithChildren
+  '/match': typeof MatchRoute
   '/match/$sku': typeof MatchSkuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/match': typeof MatchRouteWithChildren
+  '/match': typeof MatchRoute
   '/match/$sku': typeof MatchSkuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/match': typeof MatchRouteWithChildren
-  '/match/$sku': typeof MatchSkuRoute
+  '/match': typeof MatchRoute
+  '/match_/$sku': typeof MatchSkuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths: '/' | '/match' | '/match/$sku'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/match' | '/match/$sku'
-  id: '__root__' | '/' | '/match' | '/match/$sku'
+  id: '__root__' | '/' | '/match' | '/match_/$sku'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  MatchRoute: typeof MatchRouteWithChildren
+  MatchRoute: typeof MatchRoute
+  MatchSkuRoute: typeof MatchSkuRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -74,29 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/match/$sku': {
-      id: '/match/$sku'
-      path: '/$sku'
+    '/match_/$sku': {
+      id: '/match_/$sku'
+      path: '/match/$sku'
       fullPath: '/match/$sku'
       preLoaderRoute: typeof MatchSkuRouteImport
-      parentRoute: typeof MatchRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface MatchRouteChildren {
-  MatchSkuRoute: typeof MatchSkuRoute
-}
-
-const MatchRouteChildren: MatchRouteChildren = {
-  MatchSkuRoute: MatchSkuRoute,
-}
-
-const MatchRouteWithChildren = MatchRoute._addFileChildren(MatchRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  MatchRoute: MatchRouteWithChildren,
+  MatchRoute: MatchRoute,
+  MatchSkuRoute: MatchSkuRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
