@@ -1,8 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Package } from "lucide-react";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { useDelivery } from "@/context/delivery-context";
+import { getProductImage } from "@/lib/product-images";
 import type { MatchRow } from "@/types";
 
 export const Route = createFileRoute("/match/$sku")({
@@ -31,6 +32,8 @@ function Detail() {
 
   const detectedItem = delivery.detected.find((d) => d.sku === sku);
 
+  const productImage = getProductImage(row.sku);
+
   return (
     <div className="flex min-h-screen flex-col pb-28">
       <header className="flex items-center gap-2 px-4 pb-2 pt-6">
@@ -41,6 +44,23 @@ function Detail() {
       </header>
 
       <StatusBanner row={row} />
+
+      <section className="mx-4 mt-5">
+        <h2 className="text-xs font-bold uppercase tracking-wide text-muted">Produkt</h2>
+        <div className="mt-2 overflow-hidden rounded-xl border border-line bg-card">
+          {productImage ? (
+            <img
+              src={productImage}
+              alt={row.name}
+              className="h-56 w-full bg-white object-contain p-4"
+            />
+          ) : (
+            <div className="flex h-56 w-full items-center justify-center bg-surf text-muted">
+              <Package className="h-12 w-12" />
+            </div>
+          )}
+        </div>
+      </section>
 
       <section className="mx-4 mt-5">
         <h2 className="text-xs font-bold uppercase tracking-wide text-muted">Z dodacieho listu</h2>
@@ -63,19 +83,23 @@ function Detail() {
               · {Math.round((detectedItem?.confidence ?? row.confidence) * 100)}% istota
             </span>
           </p>
+          <p className="mt-1 text-xs text-muted">
+            Súčet z {delivery.palletImages.length} {delivery.palletImages.length === 1 ? "fotky" : "fotiek"} palety
+          </p>
         </div>
       </section>
 
       <section className="mx-4 mt-5">
-        <h2 className="text-xs font-bold uppercase tracking-wide text-muted">Foto z palety</h2>
-        <div className="mt-2 overflow-hidden rounded-xl border border-line bg-card">
-          <img
-            src={delivery.palletImage}
-            alt="Paleta"
-            className="h-56 w-full object-cover"
-          />
+        <h2 className="text-xs font-bold uppercase tracking-wide text-muted">Fotky palety</h2>
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          {delivery.palletImages.map((url, i) => (
+            <div key={i} className="overflow-hidden rounded-xl border border-line bg-card">
+              <img src={url} alt={`Paleta ${i + 1}`} className="h-32 w-full object-cover" />
+            </div>
+          ))}
         </div>
       </section>
+
 
       <div className="fixed inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[480px] border-t border-line bg-card/95 p-4 backdrop-blur">
         <button

@@ -29,7 +29,7 @@ export type MatchRow = {
 export type Delivery = {
   id: string;
   deliveryNoteImage: string;
-  palletImage: string;
+  palletImages: string[];
   lineItems: LineItem[];
   detected: DetectedItem[];
   matchRows: MatchRow[];

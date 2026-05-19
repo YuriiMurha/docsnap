@@ -24,7 +24,7 @@ export function buildDemoDelivery(): Delivery {
   return {
     id: "demo-001",
     deliveryNoteImage: "/demo/lieferschein-sample.svg",
-    palletImage: "/demo/pallet-sample.svg",
+    palletImages: ["/demo/pallet-sample.svg"],
     lineItems,
     detected,
     matchRows: buildMatchReport(lineItems, detected),
